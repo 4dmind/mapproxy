@@ -5,8 +5,8 @@ done=0
 trap 'done=1' TERM INT
 cd /mapproxy
 
-groupadd mapproxy && \
-useradd --home-dir /mapproxy -s /bin/bash -g mapproxy mapproxy && \
+groupadd mapproxy -g 1000 && \
+useradd --home-dir /mapproxy -s /bin/bash -g mapproxy -u 1000 mapproxy && \
 chown -R mapproxy:mapproxy /mapproxy/config/cache_data
 
 # create config files if they do not exist yet

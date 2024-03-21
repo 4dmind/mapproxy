@@ -67,6 +67,8 @@ COPY uwsgi.conf .
 
 COPY nginx-default.conf /etc/nginx/sites-enabled/default
 
+COPY start.sh .
+
 EXPOSE 8091
 
 ENTRYPOINT ["bash", "-c", "./start.sh nginx"]
