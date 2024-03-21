@@ -8,6 +8,7 @@ LABEL maintainer="mapproxy.org"
 ARG MAPPROXY_VERSION=2.0.2
 
 RUN apt update && apt -y install --no-install-recommends \
+  bash \
   python3-pil \
   python3-yaml \
   python3-pyproj \
