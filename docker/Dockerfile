@@ -38,9 +38,9 @@ RUN pip install MapProxy==$MAPPROXY_VERSION && \
 
 COPY app.py .
 
-COPY start.sh .
+COPY start.sh /
 
-ENTRYPOINT ["bash", "-c", "./start.sh base"]
+ENTRYPOINT ["bash", "-c", "/start.sh base"]
 
 ###### development image ######
 
