@@ -30,6 +30,7 @@ RUN ln -s /usr/lib/`uname -m`-linux-gnu/libproj.so /usr/lib/`uname -m`-linux-gnu
 
 
 RUN pip install pyproj
+RUN pip install boto3
 
 RUN pip install MapProxy==$MAPPROXY_VERSION && \
     # temporary fix for v1.15.1
