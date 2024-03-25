@@ -46,28 +46,28 @@ ENTRYPOINT ["bash", "-c", "./start.sh base"]
 
 FROM base AS development
 
-#EXPOSE 8080
+EXPOSE 8090
 
 ENTRYPOINT ["bash", "-c", "./start.sh development"]
 
 ##### nginx image ######
 
-FROM base AS nginx
+#FROM base AS nginx
 
-RUN apt update && apt -y install --no-install-recommends nginx gcc
+#RUN apt update && apt -y install --no-install-recommends nginx gcc
 
 # cleanup
-RUN apt-get -y --purge autoremove \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get -y --purge autoremove \
+#    && apt-get clean \
+#    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install uwsgi && \
-    pip cache purge
+#RUN pip install uwsgi && \
+#    pip cache purge
 
-COPY uwsgi.conf .
+#COPY uwsgi.conf .
 
-COPY nginx-default.conf /etc/nginx/sites-enabled/default
+#COPY nginx-default.conf /etc/nginx/sites-enabled/default
 
-EXPOSE 8091
+#EXPOSE 8091
 
-ENTRYPOINT ["bash", "-c", "./start.sh nginx"]
+#ENTRYPOINT ["bash", "-c", "./start.sh nginx"]
